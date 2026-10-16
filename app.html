@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dehumid Math</title>
+<style>
+  :root { --accent: #476a84; --warn: #a83232; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 16px 64px; background: #f4f6f8; color: #23272b;
+         font-family: Georgia, 'Times New Roman', serif; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { color: var(--accent); font-size: 2.2rem; margin: 0 0 4px; }
+  .tag { font-style: italic; color: var(--accent); margin: 0 0 28px; }
+  .boundary { border-left: 4px solid var(--warn); background: #fdf1f1; padding: 16px 20px;
+              border-radius: 8px; margin: 0 0 28px; }
+  .boundary h2 { color: var(--warn); font-size: 1.1rem; margin: 0 0 8px; }
+  .boundary p { margin: 0; line-height: 1.5; }
+  .card { background: #fff; border: 1px solid #dde3e8; border-left: 4px solid var(--accent);
+          border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; }
+  .card h2 { margin: 0 0 14px; font-size: 1.25rem; }
+  label { display: block; font-size: 0.95rem; margin: 10px 0 4px; }
+  input, select { width: 100%; max-width: 220px; padding: 8px 10px; font-size: 1rem;
+          border: 1px solid #bfc9d1; border-radius: 6px; background: #eef2f5; }
+  .out { margin-top: 16px; font-size: 1.05rem; font-weight: bold; color: var(--accent);
+         line-height: 1.5; }
+  .out.err { color: var(--warn); }
+  footer { margin-top: 32px; font-size: 0.85rem; color: #7d8891; line-height: 1.5; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Dehumid Math</h1>
+  <p class="tag">Label truth, room truth and bucket truth - labeled norms, honest arithmetic.</p>
+
+  <div class="boundary">
+    <h2>The boundary</h2>
+    <p>Dehumid Math keeps labeled-norm arithmetic only. Pint ratings, the 2012-to-2019
+    standard shift and room sizing figures are published test-lab norms, not promises about
+    your basement - real pull depends on temperature, humidity, airflow and the unit itself.
+    Follow the manufacturer's sizing guidance and manual over anything this page says, and
+    for mold or water coming in, talk to a professional.</p>
+  </div>
+
+  <div class="card">
+    <h2>The label truth</h2>
+    <label for="l-pints">Labeled pints</label>
+    <input id="l-pints" type="number" step="any" value="70">
+    <label for="l-dir">Translate</label>
+    <select id="l-dir">
+      <option value="o2n" selected>2012 box to 2019 box</option>
+      <option value="n2o">2019 box to 2012 box</option>
+    </select>
+    <p class="out" id="l-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The room truth</h2>
+    <label for="r-sqft">Room size (square feet)</label>
+    <input id="r-sqft" type="number" step="any" value="900">
+    <label for="r-damp">Dampness</label>
+    <select id="r-damp">
+      <option value="0">damp</option>
+      <option value="1" selected>very damp</option>
+      <option value="2">wet</option>
+      <option value="3">extremely wet</option>
+    </select>
+    <label for="r-pints">Unit's labeled pints</label>
+    <input id="r-pints" type="number" step="any" value="35">
+    <label for="r-std">Label standard</label>
+    <select id="r-std">
+      <option value="2019" selected>2019 label</option>
+      <option value="2012">2012 label</option>
+    </select>
+    <p class="out" id="r-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The bucket truth</h2>
+    <label for="b-pull">Daily pull (pints)</label>
+    <input id="b-pull" type="number" step="any" value="22">
+    <label for="b-bucket">Bucket size (pints)</label>
+    <input id="b-bucket" type="number" step="any" value="14">
+    <p class="out" id="b-out"></p>
+  </div>
+
+  <footer>
+    Every figure here is hypothetical arithmetic on labeled norms, not a statement about any real
+    room, unit or installation. <a href="index.html">About Dehumid Math</a>
+  </footer>
+</main>
+<script src="engine.js"></script>
+<script>
+function num(id) { return parseFloat(document.getElementById(id).value); }
+function val(id) { return document.getElementById(id).value; }
+function render(id, fn) {
+  const el = document.getElementById(id);
+  try {
+    el.textContent = fn();
+    el.classList.remove("err");
+  } catch (e) {
+    el.textContent = e.message;
+    el.classList.add("err");
+  }
+}
+function update() {
+  render("l-out", () => labelTruth(num("l-pints"), val("l-dir")));
+  render("r-out", () => roomTruth(num("r-sqft"), parseInt(val("r-damp"), 10), num("r-pints"), val("r-std")));
+  render("b-out", () => bucketTruth(num("b-pull"), num("b-bucket")));
+}
+document.querySelectorAll("input, select").forEach(i => {
+  i.addEventListener("input", update);
+  i.addEventListener("change", update);
+});
+update();
+</script>
+</body>
+</html>
