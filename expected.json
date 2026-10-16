@@ -1,0 +1,248 @@
+[
+ {
+  "fn": "labelTruth",
+  "args": [
+   70,
+   "o2n"
+  ],
+  "out": "A 70-pint 2012 label reads about 50.4 pints on a 2019 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   50,
+   "o2n"
+  ],
+  "out": "A 50-pint 2012 label reads about 36.0 pints on a 2019 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   30,
+   "o2n"
+  ],
+  "out": "A 30-pint 2012 label reads about 21.6 pints on a 2019 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   50,
+   "n2o"
+  ],
+  "out": "A 50-pint 2019 label reads about 69.4 pints on a 2012 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   35,
+   "n2o"
+  ],
+  "out": "A 35-pint 2019 label reads about 48.6 pints on a 2012 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   20,
+   "n2o"
+  ],
+  "out": "A 20-pint 2019 label reads about 27.8 pints on a 2012 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   1,
+   "o2n"
+  ],
+  "out": "A 1-pint 2012 label reads about 0.7 pints on a 2019 box honestly."
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   0,
+   "o2n"
+  ],
+  "err": "the labeled pints must be above zero"
+ },
+ {
+  "fn": "labelTruth",
+  "args": [
+   -5,
+   "n2o"
+  ],
+  "err": "the labeled pints must be above zero"
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   900,
+   1,
+   35,
+   "2019"
+  ],
+  "out": "A 900-square-foot very damp room asks for 16.0 pints a day on the 2012 scale; the 35-pint 2019 unit offers 48.6 pints - a margin of 32.6 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   500,
+   0,
+   20,
+   "2012"
+  ],
+  "out": "A 500-square-foot damp room asks for 10.0 pints a day on the 2012 scale; the 20-pint 2012 unit offers 20.0 pints - a margin of 10.0 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   2000,
+   2,
+   30,
+   "2019"
+  ],
+  "out": "A 2000-square-foot wet room asks for 32.0 pints a day on the 2012 scale; the 30-pint 2019 unit offers 41.7 pints - a margin of 9.7 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   1500,
+   3,
+   30,
+   "2012"
+  ],
+  "out": "A 1500-square-foot extremely wet room asks for 30.0 pints a day on the 2012 scale; the 30-pint 2012 unit offers 30.0 pints - exactly matched honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   2500,
+   3,
+   20,
+   "2019"
+  ],
+  "out": "A 2500-square-foot extremely wet room asks for 44.0 pints a day on the 2012 scale; the 20-pint 2019 unit offers 27.8 pints - 16.2 pints short honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   300,
+   0,
+   20,
+   "2019"
+  ],
+  "out": "A 300-square-foot damp room asks for 6.0 pints a day on the 2012 scale; the 20-pint 2019 unit offers 27.8 pints - a margin of 21.8 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   100,
+   0,
+   10,
+   "2012"
+  ],
+  "out": "A 100-square-foot damp room asks for 2.0 pints a day on the 2012 scale; the 10-pint 2012 unit offers 10.0 pints - a margin of 8.0 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   4000,
+   3,
+   70,
+   "2012"
+  ],
+  "out": "A 4000-square-foot extremely wet room asks for 65.0 pints a day on the 2012 scale; the 70-pint 2012 unit offers 70.0 pints - a margin of 5.0 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   750,
+   1,
+   25,
+   "2019"
+  ],
+  "out": "A 750-square-foot very damp room asks for 14.5 pints a day on the 2012 scale; the 25-pint 2019 unit offers 34.7 pints - a margin of 20.2 pints honestly."
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   0,
+   1,
+   35,
+   "2019"
+  ],
+  "err": "the room size must be above zero"
+ },
+ {
+  "fn": "roomTruth",
+  "args": [
+   900,
+   1,
+   0,
+   "2019"
+  ],
+  "err": "the unit pints must be above zero"
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   22,
+   14
+  ],
+  "out": "Pulling 22.0 pints a day into a 14-pint bucket asks for an emptying every 15.3 hours honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   50,
+   10
+  ],
+  "out": "Pulling 50.0 pints a day into a 10-pint bucket asks for an emptying every 4.8 hours honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   10,
+   16
+  ],
+  "out": "Pulling 10.0 pints a day into a 16-pint bucket asks for an emptying every 38.4 hours honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   12,
+   12
+  ],
+  "out": "Pulling 12.0 pints a day into a 12-pint bucket asks for an emptying every 24.0 hours honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   200,
+   10
+  ],
+  "out": "Pulling 200.0 pints a day into a 10-pint bucket asks for an emptying every 1.2 hours honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   250,
+   10
+  ],
+  "out": "Pulling 250.0 pints a day into a 10-pint bucket asks for an emptying every 1.0 hour honestly."
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   0,
+   14
+  ],
+  "err": "the daily pull must be above zero"
+ },
+ {
+  "fn": "bucketTruth",
+  "args": [
+   22,
+   0
+  ],
+  "err": "the bucket size must be above zero"
+ }
+]
